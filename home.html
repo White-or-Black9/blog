@@ -1,0 +1,26 @@
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            themeToggle.checked = currentTheme === 'dark';
+
+            themeToggle.addEventListener('change', function() {
+                const newTheme = this.checked ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        });
+    </script>
+    <label class="theme-switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>        
+    </label>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;     
+        }
+    </style>
